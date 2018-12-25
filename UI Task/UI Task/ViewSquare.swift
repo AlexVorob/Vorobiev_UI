@@ -10,5 +10,9 @@ import UIKit
 
 class ViewSquare: UIView {
 
+    @IBOutlet var label: UILabel!
     
+    func animation() {
+        
+    }
 }

@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var viewSquare: ViewSquare!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {
-    
+        self.viewSquare.animation()
     }
 }
