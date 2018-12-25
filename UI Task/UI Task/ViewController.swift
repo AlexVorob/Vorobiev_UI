@@ -12,12 +12,18 @@ class ViewController: UIViewController {
     
     @IBOutlet var viewSquare: ViewSquare!
     
+    private var isRunning = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {
-        self.viewSquare.animation()
+        self.viewSquare.run()
+    }
+    
+    @IBAction func buttonStop(_ sender: UIButton) {
+        
     }
 }

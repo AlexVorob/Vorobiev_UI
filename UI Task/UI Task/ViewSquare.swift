@@ -12,13 +12,8 @@ class ViewSquare: UIView {
 
     @IBOutlet var label: UILabel?
     
-    func animation() {
-        UIView.animate(withDuration: 3) {
-            self.label?.frame.origin = CGPoint(x: 300, y: 45)
-            //self.label?.transform = .init(scaleX: 1.5, y: 1.5)
-        }
-        
-    }
+    private var isRunning = false
+    private var squarePosition = Position.leftTop
     
     enum Position {
         case leftTop
@@ -28,14 +23,10 @@ class ViewSquare: UIView {
         
         var nextPoint: Position {
             switch self {
-            case .leftDown:
-                return .leftTop
-            case .leftTop:
-                return .rightTop
-            case .rightTop:
-                return .rightDown
-            case .rightDown:
-                return .leftDown
+            case .leftDown: return .leftTop
+            case .leftTop: return .rightTop
+            case .rightTop: return .rightDown
+            case .rightDown: return .leftDown
             }
         }
         
@@ -51,5 +42,28 @@ class ViewSquare: UIView {
                 return .init(x: 300, y: 750)
             }
         }
+    }
+    
+    func startAnimation() {
+//        self.isRunning = true
+//        self.run()
+    }
+    
+    func stopAnimation() {
+        self.isRunning = false
+    }
+    
+    func run() {
+        if !self.isRunning {
+            self.isRunning = true
+            UIView.animate(withDuration: 3,
+                           animations: { self.squarePosition = self.squarePosition.nextPoint
+                                        self.label?.frame.origin = self.squarePosition.point },
+                           completion: { _ in self.isRunning = false })
+        }
+//        {
+//            self.squarePosition = self.squarePosition.nextPoint
+//            self.label?.frame.origin = self.squarePosition.point
+//        }
     }
 }
