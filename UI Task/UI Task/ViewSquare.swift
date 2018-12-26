@@ -13,7 +13,7 @@ class ViewSquare: UIView {
     @IBOutlet var label: UILabel!
     
     private var isRunning = false
-    private var isStop = false
+    private var isAnimated = true
     private var squarePosition = Position.leftTop
     
     enum Position {
@@ -29,7 +29,6 @@ class ViewSquare: UIView {
             case .rightTop: return .rightDown
             case .rightDown: return .leftDown
             }
-            
         }
         
         var point: CGPoint {
@@ -46,28 +45,59 @@ class ViewSquare: UIView {
         }
     }
     
-    func setSquarePosition() {
-        self.squarePosition = self.squarePosition.nextPoint
-        self.label.frame.origin = self.squarePosition.point
+//    func setSquarePosition() {
+//        self.setSquarePosition(position: self.squarePosition)
+//    }
+    
+    func setSquarePosition(position: Position) {
+        self.setSquarePosition(animated: false, nextPosition: position)
+    }
+    
+    
+    func setSquarePosition(animated: Bool, nextPosition: Position) {
+        self.setSquarePosition(position: nextPosition, animated: animated, completionHandler: nil)
+    }
+    
+    func setSquarePosition(position: Position, animated: Bool, completionHandler: ((Bool) -> ())?) {
+        if !self.isRunning {
+            self.isRunning = true
+            UIView.setAnimationsEnabled(animated)
+            UIView.animate(
+                withDuration: 3,
+                animations: { self.label.frame.origin = position.point },
+                completion: { _ in
+                    self.isRunning = false
+                    self.squarePosition = self.squarePosition.nextPoint
+                    completionHandler?(animated)
+            })
+        }
     }
     
     func stop() {
-        self.isStop = true
+        self.isAnimated = false
     }
     
-    func run() {
-        self.isStop = false
-        if !self.isRunning {
-            self.isRunning = true
-            UIView.animate(
-                withDuration: 3,
-                animations: { self.setSquarePosition() },
-                completion: { stateCompletion in
-                self.isRunning = false
-                if !self.isStop {
-                    self.run()
-                }
-            })
+    func startRunning() {
+        self.isAnimated = true
+        if self.isAnimated {
+            self.setSquarePosition(position: self.squarePosition, animated: true) { animated in
+                self.startRunning()
+            }
         }
+        
+        
+        
+//        if !self.isRunning {
+//            self.isRunning = true
+//            UIView.animate(
+//                withDuration: 3,
+//                animations: { self.setSquarePosition() },
+//                completion: { stateCompletion in
+//                self.isRunning = false
+//                if !self.isAnimated {
+//                    self.run()
+//                }
+//            })
+//        }
     }
 }

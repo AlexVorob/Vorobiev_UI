@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {
-        self.viewSquare.run()
+        self.viewSquare.startRunning()
     }
     
     @IBAction func buttonStop(_ sender: UIButton) {
