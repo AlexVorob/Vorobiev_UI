@@ -57,10 +57,11 @@ class ViewSquare: UIView {
     func setSquarePosition(position: Position, animated: Bool, completionHandler: ((Bool) -> ())?) {
         if !self.isRunning {
             self.isRunning = true
+            
             UIView.setAnimationsEnabled(animated)
             UIView.animate(
                 withDuration: 2,
-                animations: { self.label.frame.origin = position.point },
+                animations: { self.label.frame.origin = position.nextPoint.point },
                 completion: { _ in
                     self.isRunning = false
                     if self.isAnimated {
