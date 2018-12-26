@@ -10,7 +10,7 @@ import UIKit
 
 class ViewSquare: UIView {
 
-    @IBOutlet var label: UILabel?
+    @IBOutlet var label: UILabel!
     
     private var isRunning = false
     private var isStop = false
@@ -29,6 +29,7 @@ class ViewSquare: UIView {
             case .rightTop: return .rightDown
             case .rightDown: return .leftDown
             }
+            
         }
         
         var point: CGPoint {
@@ -46,8 +47,8 @@ class ViewSquare: UIView {
     }
     
     func setSquarePosition() {
-        let next = self.squarePosition.nextPoint
-        self.label?.frame.origin = next.point
+        self.squarePosition = self.squarePosition.nextPoint
+        self.label.frame.origin = self.squarePosition.point
     }
     
     func stop() {
@@ -58,18 +59,15 @@ class ViewSquare: UIView {
         self.isStop = false
         if !self.isRunning {
             self.isRunning = true
-            UIView.animate(withDuration: 3,
-                           animations: { self.setSquarePosition() },
-                           completion: { stateCompletion in
-                            self.isRunning = false
-                            if !self.isStop {
-                                self.run()
-                            }
+            UIView.animate(
+                withDuration: 3,
+                animations: { self.setSquarePosition() },
+                completion: { stateCompletion in
+                self.isRunning = false
+                if !self.isStop {
+                    self.run()
+                }
             })
         }
-//        {
-//            self.squarePosition = self.squarePosition.nextPoint
-//            self.label?.frame.origin = self.squarePosition.point
-//        }
     }
 }
