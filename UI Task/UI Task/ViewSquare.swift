@@ -13,6 +13,7 @@ class ViewSquare: UIView {
     @IBOutlet var label: UILabel?
     
     private var isRunning = false
+    private var isStop = false
     private var squarePosition = Position.leftTop
     
     enum Position {
@@ -44,22 +45,27 @@ class ViewSquare: UIView {
         }
     }
     
-    func startAnimation() {
-//        self.isRunning = true
-//        self.run()
+    func setSquarePosition() {
+        let next = self.squarePosition.nextPoint
+        self.label?.frame.origin = next.point
     }
     
-    func stopAnimation() {
-        self.isRunning = false
+    func stop() {
+        self.isStop = true
     }
     
     func run() {
+        self.isStop = false
         if !self.isRunning {
             self.isRunning = true
             UIView.animate(withDuration: 3,
-                           animations: { self.squarePosition = self.squarePosition.nextPoint
-                                        self.label?.frame.origin = self.squarePosition.point },
-                           completion: { _ in self.isRunning = false })
+                           animations: { self.setSquarePosition() },
+                           completion: { stateCompletion in
+                            self.isRunning = false
+                            if !self.isStop {
+                                self.run()
+                            }
+            })
         }
 //        {
 //            self.squarePosition = self.squarePosition.nextPoint

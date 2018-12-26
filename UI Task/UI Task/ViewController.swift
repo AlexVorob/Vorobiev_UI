@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var viewSquare: ViewSquare!
     
-    private var isRunning = false
+    //private var isRunning = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonStop(_ sender: UIButton) {
-        
+        self.viewSquare.stop()
     }
 }
