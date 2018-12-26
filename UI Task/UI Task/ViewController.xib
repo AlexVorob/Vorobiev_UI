@@ -43,7 +43,6 @@
                     <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Stop"/>
                     <connections>
-                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="utE-bu-RQK"/>
                         <action selector="buttonStop:" destination="-1" eventType="touchUpInside" id="N2k-1a-AYz"/>
                     </connections>
                 </button>
