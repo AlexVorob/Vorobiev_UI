@@ -13,7 +13,7 @@ class ViewSquare: UIView {
     @IBOutlet var label: UILabel!
     
     private var isRunning = false
-    private var isAnimated = true
+    private var isAnimated = false
     private var squarePosition = Position.leftTop
     
     enum Position {
@@ -45,10 +45,6 @@ class ViewSquare: UIView {
         }
     }
     
-//    func setSquarePosition() {
-//        self.setSquarePosition(position: self.squarePosition)
-//    }
-    
     func setSquarePosition(position: Position) {
         self.setSquarePosition(animated: false, nextPosition: position)
     }
@@ -63,13 +59,16 @@ class ViewSquare: UIView {
             self.isRunning = true
             UIView.setAnimationsEnabled(animated)
             UIView.animate(
-                withDuration: 3,
+                withDuration: 2,
                 animations: { self.label.frame.origin = position.point },
                 completion: { _ in
                     self.isRunning = false
-                    self.squarePosition = self.squarePosition.nextPoint
-                    completionHandler?(animated)
-            })
+                    if self.isAnimated {
+                        self.squarePosition = self.squarePosition.nextPoint
+                        completionHandler?(animated)
+                    }
+                }
+            )
         }
     }
     
@@ -80,24 +79,9 @@ class ViewSquare: UIView {
     func startRunning() {
         self.isAnimated = true
         if self.isAnimated {
-            self.setSquarePosition(position: self.squarePosition, animated: true) { animated in
+            self.setSquarePosition(position: self.squarePosition, animated: true) {_ in
                 self.startRunning()
             }
         }
-        
-        
-        
-//        if !self.isRunning {
-//            self.isRunning = true
-//            UIView.animate(
-//                withDuration: 3,
-//                animations: { self.setSquarePosition() },
-//                completion: { stateCompletion in
-//                self.isRunning = false
-//                if !self.isAnimated {
-//                    self.run()
-//                }
-//            })
-//        }
     }
 }
