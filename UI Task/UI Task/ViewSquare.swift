@@ -13,7 +13,7 @@ class ViewSquare: UIView {
     @IBOutlet var label: UILabel!
     
     private var isRunning = false
-    private var isAnimated = false
+    private var isAnimating = false
     private var squarePosition = Position.leftTop
     
     enum Position {
@@ -36,11 +36,11 @@ class ViewSquare: UIView {
             case .leftTop:
                 return .init(x: 20, y: 45)
             case .rightTop:
-                return .init(x: 300, y: 45)
+                return .init(x: 320, y: 45)
             case .leftDown:
-                return .init(x: 20, y: 750)
+                return .init(x: 20, y: 770)
             case .rightDown:
-                return .init(x: 300, y: 750)
+                return .init(x: 320, y: 770)
             }
         }
     }
@@ -54,7 +54,7 @@ class ViewSquare: UIView {
         self.setSquarePosition(position: nextPosition, animated: animated, completionHandler: nil)
     }
     
-    func setSquarePosition(position: Position, animated: Bool, completionHandler: ((Bool) -> ())?) {
+    private func setSquarePosition(position: Position, animated: Bool, completionHandler: ((Bool) -> ())?) {
         if !self.isRunning {
             self.isRunning = true
             
@@ -64,7 +64,7 @@ class ViewSquare: UIView {
                 animations: { self.label.frame.origin = position.nextPoint.point },
                 completion: { _ in
                     self.isRunning = false
-                    if self.isAnimated {
+                    if self.isAnimating {
                         self.squarePosition = self.squarePosition.nextPoint
                         completionHandler?(animated)
                     }
@@ -74,13 +74,13 @@ class ViewSquare: UIView {
     }
     
     func stop() {
-        self.isAnimated = false
+        self.isAnimating = false
     }
     
     func startRunning() {
-        self.isAnimated = true
-        if self.isAnimated {
-            self.setSquarePosition(position: self.squarePosition, animated: true) {_ in
+        self.isAnimating = true
+        if self.isAnimating {
+            self.setSquarePosition(position: self.squarePosition, animated: true) { _ in
                 self.startRunning()
             }
         }
