@@ -12,15 +12,23 @@ class ViewController: UIViewController {
     
     @IBOutlet var viewSquare: ViewSquare!
     
+    public var squareView: ViewSquare? {
+        if self.isViewLoaded {
+            return self.view as? ViewSquare
+        }
+        
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func buttonClick(_ sender: UIButton) {
-        self.viewSquare.startRunning()
+    @IBAction func onStartButton(_ sender: UIButton) {
+        self.squareView?.start()
     }
     
-    @IBAction func buttonStop(_ sender: UIButton) {
-        self.viewSquare.stop()
+    @IBAction func onStopButton(_ sender: UIButton) {
+        self.squareView?.stop()
     }
 }
