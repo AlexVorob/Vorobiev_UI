@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SquareViewController.swift
 //  UI Task
 //
 //  Created by Alex Vorobiev on 12/25/18.
@@ -8,16 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SquareViewController: UIViewController {
     
-    @IBOutlet var viewSquare: ViewSquare!
+    func when<Result>(_ condition: Bool, execute: () -> Result?) -> Result? {
+        return condition ? execute() : nil
+    }
     
-    public var squareView: ViewSquare? {
-        if self.isViewLoaded {
-            return self.view as? ViewSquare
+    func cast<Value, Result>(_ value: Value) -> Result? {
+        return value as? Result
+    }
+    
+    public var squareView: SquareView? {
+        return when(self.isViewLoaded) {
+            cast(self.view)
         }
-        
-        return nil
     }
     
     override func viewDidLoad() {

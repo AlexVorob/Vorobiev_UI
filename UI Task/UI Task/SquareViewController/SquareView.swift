@@ -1,5 +1,5 @@
 //
-//  ViewSquare.swift
+//  SquareView.swift
 //  UI Task
 //
 //  Created by Alex Vorobiev on 12/25/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewSquare: UIView {
+class SquareView: UIView {
 
     @IBOutlet var label: UILabel!
     
@@ -60,9 +60,8 @@ class ViewSquare: UIView {
         if !self.isRunning {
             self.isRunning = true
             
-            UIView.setAnimationsEnabled(animated)
             UIView.animate(
-                withDuration: 2,
+                withDuration: animated ? 2 : 0,
                 animations: { self.label.frame.origin = self.point(position: position) },
                 completion: { _ in
                     self.isRunning = false

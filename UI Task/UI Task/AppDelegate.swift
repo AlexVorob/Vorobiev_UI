@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = ViewController.init(nibName: "ViewController", bundle: Bundle.main)
+        self.window?.rootViewController = SquareViewController(nibName: "SquareViewController", bundle: Bundle.main)
         self.window?.makeKeyAndVisible()
         
         return true
