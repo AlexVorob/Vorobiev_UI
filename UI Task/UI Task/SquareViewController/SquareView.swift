@@ -14,20 +14,20 @@ class SquareView: UIView {
     
     private var isRunning = false
     private var isAnimating = false
-    private var squarePosition = Position.leftTop
+    private var squarePosition = Position.topLeft
     
     enum Position {
-        case leftTop
-        case rightTop
-        case leftDown
-        case rightDown
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
         
         var nextPoint: Position {
             switch self {
-            case .leftDown: return .leftTop
-            case .leftTop: return .rightTop
-            case .rightTop: return .rightDown
-            case .rightDown: return .leftDown
+            case .bottomLeft: return .topLeft
+            case .topLeft: return .topRight
+            case .topRight: return .bottomRight
+            case .bottomRight: return .bottomLeft
             }
         }
     }
@@ -37,13 +37,13 @@ class SquareView: UIView {
         let labelBounds = self.label.bounds
         
         switch position {
-        case .leftTop:
+        case .topLeft:
             return .init(x: screenBounds.minX, y: screenBounds.minY)
-        case .rightTop:
+        case .topRight:
             return .init(x: screenBounds.maxX - labelBounds.width, y: screenBounds.minY)
-        case .leftDown:
+        case .bottomLeft:
             return .init(x: screenBounds.minX, y: screenBounds.maxY - labelBounds.height)
-        case .rightDown:
+        case .bottomRight:
             return .init(x: screenBounds.maxX - labelBounds.width, y: screenBounds.maxY - labelBounds.height)
         }
     }
@@ -56,7 +56,7 @@ class SquareView: UIView {
         self.setSquarePosition(position: nextPosition, animated: animated, completionHandler: nil)
     }
     
-    private func setSquarePosition(position: Position, animated: Bool, completionHandler: ((Bool) -> ())?) {
+    private func setSquarePosition(position: Position, animated: Bool, completionHandler: F.Completion<Bool>?) {
         if !self.isRunning {
             self.isRunning = true
             

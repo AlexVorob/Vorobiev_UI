@@ -10,7 +10,7 @@ import UIKit
 
 class SquareViewController: UIViewController {
     
-    func when<Result>(_ condition: Bool, execute: () -> Result?) -> Result? {
+    func when<Result>(_ condition: Bool, execute: F.Execute<Result?>) -> Result? {
         return condition ? execute() : nil
     }
     
