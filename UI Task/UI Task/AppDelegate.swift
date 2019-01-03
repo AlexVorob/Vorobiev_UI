@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let window = self.window
-        window?.rootViewController = SquareViewController(nibName: "SquareViewController", bundle: Bundle.main)
-        window?.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = SquareViewController(nibName: "SquareViewController", bundle: Bundle.main)
+        window.makeKeyAndVisible()
+        self.window = window
         
         return true
     }
