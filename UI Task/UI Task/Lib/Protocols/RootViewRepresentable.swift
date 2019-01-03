@@ -12,12 +12,3 @@ protocol RootViewRepresentable {
     
     associatedtype RootView: UIView
 }
-
-extension RootViewRepresentable where Self: UIViewController {
-    
-    var rootView: RootView? {
-        return when(self.isViewLoaded) {
-            cast(self.view)
-        }
-    }
-}

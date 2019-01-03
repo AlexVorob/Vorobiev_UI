@@ -14,9 +14,9 @@ class SquareView: UIView {
 
     @IBOutlet var label: UILabel?
     
-    private var isRunning = false
-    private var isAnimating = false
-    private var squarePosition = Position.topLeft
+    private(set) var isRunning = false
+    private(set) var isAnimating = false
+    private(set) var squarePosition = Position.topLeft
     
     private let positions = PositionGenerator(objects: Position.topLeft, .topRight, .bottomRight, .bottomLeft)
     
