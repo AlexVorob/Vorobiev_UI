@@ -10,42 +10,35 @@ import UIKit
 
 class SquareView: UIView {
 
-    @IBOutlet var label: UILabel!
+    @IBOutlet var label: UILabel?
     
     private var isRunning = false
     private var isAnimating = false
     private var squarePosition = Position.topLeft
+    private let positions = PositionGenerator(objects: Position.topLeft, .topRight, .bottomRight, .bottomLeft)
     
     enum Position {
         case topLeft
         case topRight
         case bottomLeft
         case bottomRight
-        
-        var nextPoint: Position {
-            switch self {
-            case .bottomLeft: return .topLeft
-            case .topLeft: return .topRight
-            case .topRight: return .bottomRight
-            case .bottomRight: return .bottomLeft
-            }
-        }
     }
     
     private func point(position: Position) -> CGPoint {
-        let screenBounds = UIScreen.main.bounds
-        let labelBounds = self.label.bounds
+        
+        let frame =  self.frame.inset(by: UIEdgeInsets(top: self.safeAreaInsets.top, left: self.safeAreaInsets.left, bottom: (self.label?.frame.height)!, right: (self.label?.frame.width)!))
+        
+        var result = frame.topLeft
+        let bottomRight = frame.bottomRight
         
         switch position {
-        case .topLeft:
-            return .init(x: screenBounds.minX, y: screenBounds.minY)
-        case .topRight:
-            return .init(x: screenBounds.maxX - labelBounds.width, y: screenBounds.minY)
-        case .bottomLeft:
-            return .init(x: screenBounds.minX, y: screenBounds.maxY - labelBounds.height)
-        case .bottomRight:
-            return .init(x: screenBounds.maxX - labelBounds.width, y: screenBounds.maxY - labelBounds.height)
+        case .topLeft:  break
+        case .topRight: result.x = bottomRight.x
+        case .bottomLeft: result.y = bottomRight.y
+        case .bottomRight: result = bottomRight
         }
+        
+        return result
     }
     
     func setSquarePosition(position: Position) {
@@ -59,14 +52,13 @@ class SquareView: UIView {
     private func setSquarePosition(position: Position, animated: Bool, completionHandler: F.Completion<Bool>?) {
         if !self.isRunning {
             self.isRunning = true
-            
             UIView.animate(
-                withDuration: animated ? 2 : 0,
-                animations: { self.label.frame.origin = self.point(position: position) },
+                withDuration: animated ? 2.0 : 0.0,
+                animations: { self.label?.frame.origin = self.point(position: position) },
                 completion: { _ in
                     self.isRunning = false
                     if self.isAnimating {
-                        self.squarePosition = self.squarePosition.nextPoint
+                        self.squarePosition = self.positions.next()
                         completionHandler?(animated)
                     }
                 }
