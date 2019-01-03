@@ -9,36 +9,39 @@
 import UIKit
 
 class SquareView: UIView {
+    
+    typealias Position = CGRect.Position
 
     @IBOutlet var label: UILabel?
     
     private var isRunning = false
     private var isAnimating = false
     private var squarePosition = Position.topLeft
+    
     private let positions = PositionGenerator(objects: Position.topLeft, .topRight, .bottomRight, .bottomLeft)
     
-    enum Position {
-        case topLeft
-        case topRight
-        case bottomLeft
-        case bottomRight
-    }
-    
-    private func point(position: Position) -> CGPoint {
-        
-        let frame =  self.frame.inset(by: UIEdgeInsets(top: self.safeAreaInsets.top, left: self.safeAreaInsets.left, bottom: (self.label?.frame.height)!, right: (self.label?.frame.width)!))
-        
-        var result = frame.topLeft
-        let bottomRight = frame.bottomRight
-        
-        switch position {
-        case .topLeft:  break
-        case .topRight: result.x = bottomRight.x
-        case .bottomLeft: result.y = bottomRight.y
-        case .bottomRight: result = bottomRight
+    private func moveToPoint(position: Position) {
+
+        self.label.do { label in
+            let frame =  self.frame.inset(by: UIEdgeInsets(
+                top: self.safeAreaInsets.top,
+                left: self.safeAreaInsets.left,
+                bottom: label.frame.height,
+                right: label.frame.width)
+            )
+            
+            var result = frame.topLeft
+            let bottomRight = frame.bottomRight
+            
+            switch position {
+            case .topLeft:  break
+            case .topRight: result.x = bottomRight.x
+            case .bottomLeft: result.y = bottomRight.y
+            case .bottomRight: result = bottomRight
+            }
+            
+            self.label?.frame.origin = result
         }
-        
-        return result
     }
     
     func setSquarePosition(position: Position) {
@@ -54,7 +57,7 @@ class SquareView: UIView {
             self.isRunning = true
             UIView.animate(
                 withDuration: animated ? 2.0 : 0.0,
-                animations: { self.label?.frame.origin = self.point(position: position) },
+                animations: { self.moveToPoint(position: position) },
                 completion: { _ in
                     self.isRunning = false
                     if self.isAnimating {

@@ -10,6 +10,13 @@ import UIKit
 
 extension CGRect {
     
+    enum Position {
+        case topLeft
+        case topRight
+        case bottomLeft
+        case bottomRight
+    }
+    
     var topLeft: CGPoint {
         return CGPoint(x: self.minX, y: self.minY)
     }
