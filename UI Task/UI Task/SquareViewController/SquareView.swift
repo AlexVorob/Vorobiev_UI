@@ -10,26 +10,26 @@ import UIKit
 
 class SquareView: UIView {
     
-    public struct Strings {
+    typealias Position = CGRect.Position
+    
+    @IBOutlet var label: UILabel?
+    @IBOutlet var button: UIButton?
+    
+    private struct Strings {
         
         static let start = "Start"
         static let stop = "Stop"
     }
     
-    public struct Durations {
+    private struct Durations {
         
         static let zero = 0.0
         static let duration = 2.0
     }
     
-    typealias Position = CGRect.Position
-
-    @IBOutlet var label: UILabel?
-    @IBOutlet var button: UIButton?
-    
-    private(set) var isCanceled = false {
+    private(set) var isCancelled = false {
         didSet {
-            let newValue = self.isCanceled ? Strings.stop : Strings.start
+            let newValue = self.isCancelled ? Strings.stop : Strings.start
             self.button?.setTitle(newValue, for: .normal)
         }
     }
@@ -41,7 +41,7 @@ class SquareView: UIView {
     private let positions = PositionGenerator(objects: Position.topLeft, .topRight, .bottomRight, .bottomLeft)
     
     private func moveToPoint(position: Position) -> CGPoint {
-        guard let label = self.label else { return CGPoint.zero }
+        guard let label = self.label else { return .zero }
         
         let labelFrame = label.frame
         
@@ -52,19 +52,9 @@ class SquareView: UIView {
             right: labelFrame.width
         )
         
-        let frame =  self.frame.inset(by: inset)
+        let frame = self.frame.inset(by: inset)
         
-        var result = frame.topLeft
-        let bottomRight = frame.bottomRight
-
-        switch position {
-        case .topLeft:  break
-        case .topRight: result.x = bottomRight.x
-        case .bottomLeft: result.y = bottomRight.y
-        case .bottomRight: result = bottomRight
-        }
-
-        return result
+        return frame.point(at: position)
     }
     
     private func setSquarePosition(
@@ -93,17 +83,17 @@ class SquareView: UIView {
     }
     
     func start() {
-        if !self.isCanceled {
-            self.startMooving()
+        if !self.isCancelled {
+            self.animateMooving()
         }
         
-        self.isCanceled.toggle()
+        self.isCancelled.toggle()
     }
     
-    private func startMooving() {
+    private func animateMooving() {
         self.setSquarePosition(position: self.squarePosition) { _ in
-            if self.isCanceled {
-                self.startMooving()
+            if self.isCancelled {
+                self.animateMooving()
             }
         }
     }
