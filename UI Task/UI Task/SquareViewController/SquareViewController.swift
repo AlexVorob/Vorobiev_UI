@@ -19,8 +19,4 @@ class SquareViewController: UIViewController, RootViewRepresentable {
     @IBAction func onStartButton(_ sender: UIButton) {
         self.rootView?.start()
     }
-    
-    @IBAction func onStopButton(_ sender: UIButton) {
-        self.rootView?.stop()
-    }
 }

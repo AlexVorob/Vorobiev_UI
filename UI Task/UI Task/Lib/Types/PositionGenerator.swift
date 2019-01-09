@@ -10,8 +10,8 @@ import Foundation
 
 final class PositionGenerator<Value> {
     
-    private(set) var objects = [Value]()
-    let index = Atomic(0)
+    private let objects: [Value]
+    private let index = Atomic(0)
     
     init(objects: [Value]) {
         self.objects = objects
@@ -22,14 +22,10 @@ final class PositionGenerator<Value> {
     }
     
     func next() -> Value {
-        let index: Int = self.index.modify { index in
-            defer {
-                index = (index + 1) % self.objects.count
-            }
+        return self.index.modify { index in
+            index = (index + 1) % self.objects.count
             
-            return index
+            return self.objects[index]
         }
-    
-        return self.objects[index]
     }
 }

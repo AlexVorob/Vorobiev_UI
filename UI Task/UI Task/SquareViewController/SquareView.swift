@@ -10,76 +10,72 @@ import UIKit
 
 class SquareView: UIView {
     
+    public struct Strings {
+        
+        static let start = "Start"
+        static let stop = "Stop"
+    }
+    
+    public struct Durations {
+        
+        static let zero = 0.0
+        static let duration = 2.0
+    }
+    
     typealias Position = CGRect.Position
 
     @IBOutlet var label: UILabel?
+    @IBOutlet var button: UIButton?
+    
+    private(set) var isCanceled = false {
+        didSet {
+            let newValue = self.isCanceled ? Strings.stop : Strings.start
+            self.button?.setTitle(newValue, for: .normal)
+        }
+    }
     
     private(set) var isRunning = false
-    private(set) var isAnimating = false
+    private(set) var isAnimating = true
     private(set) var squarePosition = Position.topLeft
     
     private let positions = PositionGenerator(objects: Position.topLeft, .topRight, .bottomRight, .bottomLeft)
     
     private func moveToPoint(position: Position) -> CGPoint {
+        guard let label = self.label else { return CGPoint.zero }
         
-        var result = self.frame.topLeft
+        let labelFrame = label.frame
         
-        if let label = self.label {
-            let frame =  self.frame.inset(by: UIEdgeInsets(
-                top: self.safeAreaInsets.top,
-                left: self.safeAreaInsets.left,
-                bottom: label.frame.height,
-                right: label.frame.width)
-            )
-            
-            result = frame.topLeft
-            let bottomRight = frame.bottomRight
-            
-            switch position {
-            case .topLeft:  break
-            case .topRight: result.x = bottomRight.x
-            case .bottomLeft: result.y = bottomRight.y
-            case .bottomRight: result = bottomRight
-            }
+        let inset = UIEdgeInsets(
+            top: self.safeAreaInsets.top,
+            left: self.safeAreaInsets.left,
+            bottom: labelFrame.height,
+            right: labelFrame.width
+        )
+        
+        let frame =  self.frame.inset(by: inset)
+        
+        var result = frame.topLeft
+        let bottomRight = frame.bottomRight
+
+        switch position {
+        case .topLeft:  break
+        case .topRight: result.x = bottomRight.x
+        case .bottomLeft: result.y = bottomRight.y
+        case .bottomRight: result = bottomRight
         }
-        
+
         return result
-        
-//        self.label.do { label in
-//            let frame =  self.frame.inset(by: UIEdgeInsets(
-//                top: self.safeAreaInsets.top,
-//                left: self.safeAreaInsets.left,
-//                bottom: label.frame.height,
-//                right: label.frame.width)
-//            )
-//
-//            var result = frame.topLeft
-//            let bottomRight = frame.bottomRight
-//
-//            switch position {
-//            case .topLeft:  break
-//            case .topRight: result.x = bottomRight.x
-//            case .bottomLeft: result.y = bottomRight.y
-//            case .bottomRight: result = bottomRight
-//            }
-//
-//            self.label?.frame.origin = result
-//        }
     }
     
-    func setSquarePosition(position: Position) {
-        self.setSquarePosition(animated: false, nextPosition: position)
-    }
-    
-    func setSquarePosition(animated: Bool, nextPosition: Position) {
-        self.setSquarePosition(position: nextPosition, animated: animated, completionHandler: nil)
-    }
-    
-    private func setSquarePosition(position: Position, animated: Bool, completionHandler: F.Completion<Bool>?) {
+    private func setSquarePosition(
+        position: Position,
+        animated: Bool = true,
+        completionHandler: F.Completion<Bool>? = nil
+    ) {
         if !self.isRunning {
             self.isRunning = true
             UIView.animate(
-                withDuration: animated ? 2.0 : 0.0,
+                withDuration: animated ? Durations.duration : Durations.zero,
                 animations: { self.label?.frame.origin = self.moveToPoint(position: position) },
                 completion: { _ in
                     self.isRunning = false
@@ -97,10 +93,17 @@ class SquareView: UIView {
     }
     
     func start() {
-        self.isAnimating = true
-        if self.isAnimating {
-            self.setSquarePosition(position: self.squarePosition, animated: true) { _ in
-                self.start()
+        if !self.isCanceled {
+            self.startMooving()
+        }
+        
+        self.isCanceled.toggle()
+    }
+    
+    private func startMooving() {
+        self.setSquarePosition(position: self.squarePosition) { _ in
+            if self.isCanceled {
+                self.startMooving()
             }
         }
     }
