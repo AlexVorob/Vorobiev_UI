@@ -1,9 +1,9 @@
 //
 //  NSLocking+Extensions.swift
-//  UI Task
+//  Car wash
 //
-//  Created by Alex Vorobiev on 12/28/18.
-//  Copyright © 2018 Student. All rights reserved.
+//  Created by Student on 10/31/18.
+//  Copyright © 2018 IDAP. All rights reserved.
 //
 
 import Foundation

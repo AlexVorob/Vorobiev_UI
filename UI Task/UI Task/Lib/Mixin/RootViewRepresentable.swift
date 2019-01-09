@@ -1,5 +1,5 @@
 //
-//  RootViewRepresentable+Extensions.swift
+//  RootViewRepresentable.swift
 //  UI Task
 //
 //  Created by Alex Vorobiev on 1/3/19.
@@ -7,6 +7,11 @@
 //
 
 import UIKit
+
+protocol RootViewRepresentable {
+    
+    associatedtype RootView: UIView
+}
 
 extension RootViewRepresentable where Self: UIViewController {
     

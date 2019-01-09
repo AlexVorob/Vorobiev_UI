@@ -13,21 +13,20 @@
 		5864B09721D619F50083CE0B /* CGRect+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B09621D619F50083CE0B /* CGRect+Extensions.swift */; };
 		5864B09921D6212C0083CE0B /* F.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B09821D6212C0083CE0B /* F.swift */; };
 		5864B09B21D627D20083CE0B /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B09A21D627D20083CE0B /* Atomic.swift */; };
-		5864B09D21D628340083CE0B /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B09C21D628340083CE0B /* NSLocking+Extensions.swift */; };
 		5870EFCF21DDF5DE001D6D37 /* PositionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFCE21DDF5DE001D6D37 /* PositionGenerator.swift */; };
 		5870EFD121DDFED4001D6D37 /* RootViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */; };
-		5870EFD321DE00A3001D6D37 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD221DE00A3001D6D37 /* DispatchQueue+Extensions.swift */; };
-		5870EFD521DE00DA001D6D37 /* DispatchTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD421DE00DA001D6D37 /* DispatchTime+Extensions.swift */; };
-		5870EFD721DE00EF001D6D37 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD621DE00EF001D6D37 /* Optional+Extensions.swift */; };
-		5870EFD921DE00FE001D6D37 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD821DE00FE001D6D37 /* RangeReplaceableCollection+Extensions.swift */; };
-		5870EFDB21DE0105001D6D37 /* Strideable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFDA21DE0105001D6D37 /* Strideable+Extensions.swift */; };
 		5870EFDD21DE01A1001D6D37 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFDC21DE01A1001D6D37 /* Cancellable.swift */; };
-		5870EFDF21DE0BE5001D6D37 /* RootViewRepresentable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFDE21DE0BE5001D6D37 /* RootViewRepresentable+Extensions.swift */; };
 		5883883521D10E4A0009F740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883883421D10E4A0009F740 /* AppDelegate.swift */; };
 		5883883C21D10E4A0009F740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5883883B21D10E4A0009F740 /* Assets.xcassets */; };
 		5883883F21D10E4A0009F740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5883883D21D10E4A0009F740 /* LaunchScreen.storyboard */; };
 		5883884A21D10E4A0009F740 /* UI_TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883884921D10E4A0009F740 /* UI_TaskTests.swift */; };
 		5883885521D10E4A0009F740 /* UI_TaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883885421D10E4A0009F740 /* UI_TaskUITests.swift */; };
+		589E29A721E5E484002A2848 /* NSLocking+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29A621E5E484002A2848 /* NSLocking+Extensions.swift */; };
+		589E29A921E5E561002A2848 /* Strideable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29A821E5E561002A2848 /* Strideable+Extensions.swift */; };
+		589E29AB21E5E580002A2848 /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29AA21E5E580002A2848 /* DispatchQueue+Extensions.swift */; };
+		589E29AD21E5E5A2002A2848 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29AC21E5E5A1002A2848 /* Optional+Extensions.swift */; };
+		589E29AF21E5E5D4002A2848 /* DispatchTime+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29AE21E5E5D4002A2848 /* DispatchTime+Extensions.swift */; };
+		589E29B221E5E652002A2848 /* RangeReplaceableCollection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589E29B121E5E652002A2848 /* RangeReplaceableCollection+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,16 +53,9 @@
 		5864B09621D619F50083CE0B /* CGRect+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extensions.swift"; sourceTree = "<group>"; };
 		5864B09821D6212C0083CE0B /* F.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F.swift; sourceTree = "<group>"; };
 		5864B09A21D627D20083CE0B /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
-		5864B09C21D628340083CE0B /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
 		5870EFCE21DDF5DE001D6D37 /* PositionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionGenerator.swift; sourceTree = "<group>"; };
 		5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewRepresentable.swift; sourceTree = "<group>"; };
-		5870EFD221DE00A3001D6D37 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Extensions.swift"; path = "../../../../../Repos Vorobiev/Car wash/Extensions/DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
-		5870EFD421DE00DA001D6D37 /* DispatchTime+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DispatchTime+Extensions.swift"; path = "../../../../../Repos Vorobiev/Car wash/Extensions/DispatchTime+Extensions.swift"; sourceTree = "<group>"; };
-		5870EFD621DE00EF001D6D37 /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Optional+Extensions.swift"; path = "../../../../../Repos Vorobiev/Car wash/Extensions/Optional+Extensions.swift"; sourceTree = "<group>"; };
-		5870EFD821DE00FE001D6D37 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RangeReplaceableCollection+Extensions.swift"; path = "../../../../../Repos Vorobiev/Car wash/Extensions/RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
-		5870EFDA21DE0105001D6D37 /* Strideable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Strideable+Extensions.swift"; path = "../../../../../Repos Vorobiev/Car wash/Extensions/Strideable+Extensions.swift"; sourceTree = "<group>"; };
 		5870EFDC21DE01A1001D6D37 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = "../../../../../Repos Vorobiev/Car wash/Protocols/Cancellable.swift"; sourceTree = "<group>"; };
-		5870EFDE21DE0BE5001D6D37 /* RootViewRepresentable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewRepresentable+Extensions.swift"; sourceTree = "<group>"; };
 		5883883121D10E4A0009F740 /* UI Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5883883421D10E4A0009F740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5883883B21D10E4A0009F740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +67,12 @@
 		5883885021D10E4A0009F740 /* UI TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UI TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5883885421D10E4A0009F740 /* UI_TaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_TaskUITests.swift; sourceTree = "<group>"; };
 		5883885621D10E4A0009F740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		589E29A621E5E484002A2848 /* NSLocking+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLocking+Extensions.swift"; sourceTree = "<group>"; };
+		589E29A821E5E561002A2848 /* Strideable+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strideable+Extensions.swift"; sourceTree = "<group>"; };
+		589E29AA21E5E580002A2848 /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
+		589E29AC21E5E5A1002A2848 /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		589E29AE21E5E5D4002A2848 /* DispatchTime+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extensions.swift"; sourceTree = "<group>"; };
+		589E29B121E5E652002A2848 /* RangeReplaceableCollection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RangeReplaceableCollection+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +113,7 @@
 		5864B09221D6185B0083CE0B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				589E29B021E5E633002A2848 /* Mixin */,
 				5864B09521D6192F0083CE0B /* Protocols */,
 				5864B09421D619260083CE0B /* Types */,
 				5864B09321D6186F0083CE0B /* Extensions */,
@@ -125,14 +124,8 @@
 		5864B09321D6186F0083CE0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5870EFDA21DE0105001D6D37 /* Strideable+Extensions.swift */,
-				5870EFD821DE00FE001D6D37 /* RangeReplaceableCollection+Extensions.swift */,
-				5870EFD421DE00DA001D6D37 /* DispatchTime+Extensions.swift */,
-				5870EFD221DE00A3001D6D37 /* DispatchQueue+Extensions.swift */,
-				5864B09621D619F50083CE0B /* CGRect+Extensions.swift */,
-				5870EFD621DE00EF001D6D37 /* Optional+Extensions.swift */,
-				5864B09C21D628340083CE0B /* NSLocking+Extensions.swift */,
-				5870EFDE21DE0BE5001D6D37 /* RootViewRepresentable+Extensions.swift */,
+				589E29A421E5E39C002A2848 /* Foundation */,
+				589E29A521E5E418002A2848 /* Core Graphics */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -151,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				5870EFDC21DE01A1001D6D37 /* Cancellable.swift */,
-				5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -205,6 +197,35 @@
 				5883885621D10E4A0009F740 /* Info.plist */,
 			);
 			path = "UI TaskUITests";
+			sourceTree = "<group>";
+		};
+		589E29A421E5E39C002A2848 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				589E29B121E5E652002A2848 /* RangeReplaceableCollection+Extensions.swift */,
+				589E29AE21E5E5D4002A2848 /* DispatchTime+Extensions.swift */,
+				589E29AC21E5E5A1002A2848 /* Optional+Extensions.swift */,
+				589E29AA21E5E580002A2848 /* DispatchQueue+Extensions.swift */,
+				589E29A621E5E484002A2848 /* NSLocking+Extensions.swift */,
+				589E29A821E5E561002A2848 /* Strideable+Extensions.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		589E29A521E5E418002A2848 /* Core Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				5864B09621D619F50083CE0B /* CGRect+Extensions.swift */,
+			);
+			path = "Core Graphics";
+			sourceTree = "<group>";
+		};
+		589E29B021E5E633002A2848 /* Mixin */ = {
+			isa = PBXGroup;
+			children = (
+				5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */,
+			);
+			path = Mixin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,21 +359,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				589E29A921E5E561002A2848 /* Strideable+Extensions.swift in Sources */,
 				5870EFDD21DE01A1001D6D37 /* Cancellable.swift in Sources */,
 				5864B09121D617FB0083CE0B /* SquareView.swift in Sources */,
-				5870EFD721DE00EF001D6D37 /* Optional+Extensions.swift in Sources */,
 				5864B09921D6212C0083CE0B /* F.swift in Sources */,
-				5864B09D21D628340083CE0B /* NSLocking+Extensions.swift in Sources */,
-				5870EFD921DE00FE001D6D37 /* RangeReplaceableCollection+Extensions.swift in Sources */,
-				5870EFD321DE00A3001D6D37 /* DispatchQueue+Extensions.swift in Sources */,
-				5870EFDF21DE0BE5001D6D37 /* RootViewRepresentable+Extensions.swift in Sources */,
+				589E29AB21E5E580002A2848 /* DispatchQueue+Extensions.swift in Sources */,
 				5864B09721D619F50083CE0B /* CGRect+Extensions.swift in Sources */,
+				589E29A721E5E484002A2848 /* NSLocking+Extensions.swift in Sources */,
 				5870EFD121DDFED4001D6D37 /* RootViewRepresentable.swift in Sources */,
-				5870EFD521DE00DA001D6D37 /* DispatchTime+Extensions.swift in Sources */,
 				5883883521D10E4A0009F740 /* AppDelegate.swift in Sources */,
+				589E29AF21E5E5D4002A2848 /* DispatchTime+Extensions.swift in Sources */,
+				589E29AD21E5E5A2002A2848 /* Optional+Extensions.swift in Sources */,
 				5864B09B21D627D20083CE0B /* Atomic.swift in Sources */,
+				589E29B221E5E652002A2848 /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				5870EFCF21DDF5DE001D6D37 /* PositionGenerator.swift in Sources */,
-				5870EFDB21DE0105001D6D37 /* Strideable+Extensions.swift in Sources */,
 				5864B08F21D617FB0083CE0B /* SquareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

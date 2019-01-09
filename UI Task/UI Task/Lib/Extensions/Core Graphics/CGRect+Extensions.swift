@@ -6,7 +6,7 @@
 //  Copyright © 2018 Student. All rights reserved.
 //
 
-import UIKit
+import CoreGraphics
 
 extension CGRect {
     
