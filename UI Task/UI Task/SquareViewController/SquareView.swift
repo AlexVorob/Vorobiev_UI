@@ -83,11 +83,8 @@ class SquareView: UIView {
     }
     
     func start() {
-        if !self.isCancelled {
-            self.animateMooving()
-        }
-        
         self.isCancelled.toggle()
+        self.animateMooving()
     }
     
     private func animateMooving() {

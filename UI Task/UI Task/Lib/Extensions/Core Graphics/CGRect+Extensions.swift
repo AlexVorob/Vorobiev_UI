@@ -10,7 +10,7 @@ import CoreGraphics
 
 extension CGRect {
     
-    enum Position {
+    public enum Position {
         case topLeft
         case topRight
         case bottomLeft
@@ -20,20 +20,6 @@ extension CGRect {
         case center
         case topCenter
         case bottomCenter
-    }
-    
-    func point(at position: Position) -> CGPoint {
-        switch position {
-        case .topLeft: return self.topLeft
-        case .topRight: return self.topRight
-        case .bottomLeft: return self.bottomLeft
-        case .bottomRight: return self.bottomRight
-        case .leftCenter: return self.leftCenter
-        case .rightCenter: return self.rightCenter
-        case .center: return self.center
-        case .topCenter: return self.topCenter
-        case .bottomCenter: return self.bottomCenter
-        }
     }
     
     var topLeft: CGPoint {
@@ -70,5 +56,19 @@ extension CGRect {
     
     var bottomCenter: CGPoint {
         return CGPoint(x: self.midX, y: self.maxY)
+    }
+    
+    public func point(at position: Position) -> CGPoint {
+        switch position {
+        case .topLeft: return self.topLeft
+        case .topRight: return self.topRight
+        case .bottomLeft: return self.bottomLeft
+        case .bottomRight: return self.bottomRight
+        case .leftCenter: return self.leftCenter
+        case .rightCenter: return self.rightCenter
+        case .center: return self.center
+        case .topCenter: return self.topCenter
+        case .bottomCenter: return self.bottomCenter
+        }
     }
 }
