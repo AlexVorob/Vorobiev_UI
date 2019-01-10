@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582EDF4F21E7413200DDE595 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582EDF4E21E7413200DDE595 /* Cancellable.swift */; };
 		5864B08F21D617FB0083CE0B /* SquareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B08C21D617FB0083CE0B /* SquareViewController.swift */; };
 		5864B09021D617FB0083CE0B /* SquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5864B08D21D617FB0083CE0B /* SquareViewController.xib */; };
 		5864B09121D617FB0083CE0B /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B08E21D617FB0083CE0B /* SquareView.swift */; };
@@ -15,7 +16,6 @@
 		5864B09B21D627D20083CE0B /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5864B09A21D627D20083CE0B /* Atomic.swift */; };
 		5870EFCF21DDF5DE001D6D37 /* PositionGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFCE21DDF5DE001D6D37 /* PositionGenerator.swift */; };
 		5870EFD121DDFED4001D6D37 /* RootViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */; };
-		5870EFDD21DE01A1001D6D37 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5870EFDC21DE01A1001D6D37 /* Cancellable.swift */; };
 		5883883521D10E4A0009F740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883883421D10E4A0009F740 /* AppDelegate.swift */; };
 		5883883C21D10E4A0009F740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5883883B21D10E4A0009F740 /* Assets.xcassets */; };
 		5883883F21D10E4A0009F740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5883883D21D10E4A0009F740 /* LaunchScreen.storyboard */; };
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		582EDF4E21E7413200DDE595 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
 		5864B08C21D617FB0083CE0B /* SquareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareViewController.swift; sourceTree = "<group>"; };
 		5864B08D21D617FB0083CE0B /* SquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SquareViewController.xib; sourceTree = "<group>"; };
 		5864B08E21D617FB0083CE0B /* SquareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		5864B09A21D627D20083CE0B /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		5870EFCE21DDF5DE001D6D37 /* PositionGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionGenerator.swift; sourceTree = "<group>"; };
 		5870EFD021DDFED4001D6D37 /* RootViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewRepresentable.swift; sourceTree = "<group>"; };
-		5870EFDC21DE01A1001D6D37 /* Cancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = "../../../../../Repos Vorobiev/Car wash/Protocols/Cancellable.swift"; sourceTree = "<group>"; };
 		5883883121D10E4A0009F740 /* UI Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5883883421D10E4A0009F740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5883883B21D10E4A0009F740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582EDF4D21E7410C00DDE595 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				582EDF4E21E7413200DDE595 /* Cancellable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		5864B08B21D617FB0083CE0B /* SquareViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +121,8 @@
 		5864B09221D6185B0083CE0B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				582EDF4D21E7410C00DDE595 /* Protocols */,
 				589E29B021E5E633002A2848 /* Mixin */,
-				5864B09521D6192F0083CE0B /* Protocols */,
 				5864B09421D619260083CE0B /* Types */,
 				5864B09321D6186F0083CE0B /* Extensions */,
 			);
@@ -138,14 +146,6 @@
 				5870EFCE21DDF5DE001D6D37 /* PositionGenerator.swift */,
 			);
 			path = Types;
-			sourceTree = "<group>";
-		};
-		5864B09521D6192F0083CE0B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				5870EFDC21DE01A1001D6D37 /* Cancellable.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5883882821D10E4A0009F740 = {
@@ -359,8 +359,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582EDF4F21E7413200DDE595 /* Cancellable.swift in Sources */,
 				589E29A921E5E561002A2848 /* Strideable+Extensions.swift in Sources */,
-				5870EFDD21DE01A1001D6D37 /* Cancellable.swift in Sources */,
 				5864B09121D617FB0083CE0B /* SquareView.swift in Sources */,
 				5864B09921D6212C0083CE0B /* F.swift in Sources */,
 				589E29AB21E5E580002A2848 /* DispatchQueue+Extensions.swift in Sources */,
